@@ -44,35 +44,24 @@ var slideshow = {
 
         return this.photoList[this.currentPhotoIndex];
      },
-     
-      
-// js functions3 lab below
-      playInterval : " ",
-
-        play : function(){
-
-            this.playInterval = setInterval(function(){slideshow.nextPhoto()},2000);
-
-        },
 
 
-       pause : function(){
-           clearInterval(this.playInterval);
-
-
-        }
 
 
 }
 
-// slideshow.nextPhoto();
-// slideshow.nextPhoto();
-// slideshow.nextPhoto();
-// slideshow.prevPhoto();
-// slideshow.prevPhoto();
-// slideshow.prevPhoto();
-// slideshow.getCurrentPhoto();
-slideshow.play();
+
+
+
+
+slideshow.nextPhoto();
+slideshow.nextPhoto();
+slideshow.nextPhoto();
+slideshow.prevPhoto();
+slideshow.prevPhoto();
+slideshow.prevPhoto();
+slideshow.getCurrentPhoto();
+
 
 
 
