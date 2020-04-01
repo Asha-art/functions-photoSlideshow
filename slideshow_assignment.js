@@ -1,3 +1,4 @@
+
 var slideshow = {
 
   // 1. An array called `photoList` that contains the names of the photos as strings
@@ -6,51 +7,75 @@ var slideshow = {
    currentPhotoIndex : 0,
   
 
+
+
   // console.log(indexof(currentPhotoIndex));
-   	  nextPhoto : function(){
-  			
-   	 	  if(this.currentPhotoIndex < (this.photoList.length-1)){
-   	 		       this.currentPhotoIndex++; 
-         	 			console.log("next photo: "+this.photoList[this.currentPhotoIndex]);
+      nextPhoto : function(){
+        
+        if(this.currentPhotoIndex < this.photoList.length){
+               
+                console.log("next photo: "+this.photoList[this.currentPhotoIndex]);
+                this.currentPhotoIndex++; 
+            }     
 
-         	 	}
-       
+        else{
+           // console.log("End of Slideshow");  //  Otherwise, log "End of slideshow";
+           this.pause();
+          }
 
-     	 	else{
-     	 		 console.log("End of Slideshow");  //  Otherwise, log "End of slideshow";
-     	 		}
-   	 	},
-   	 	
-   	 	
-  	   prevPhoto : function(){
+      },
+      
+      
+       prevPhoto : function(){
 
-   	 		if(this.currentPhotoIndex >0){
-	   	 	 
-			         this.currentPhotoIndex--;  
-               console.log("previous photo: "+this.photoList[this.currentPhotoIndex]);
+        if(this.currentPhotoIndex >0){
+         
+               this.currentPhotoIndex--;  
+               console.log(this.photoList[this.currentPhotoIndex]);
            }
+        else{
+        console.log("Start of Slideshow");
+        }
 
-    	 	else{
-   	 		console.log("Start of Slideshow");
-   	 		}
+      },
+      
 
-   	 	},
-   	 	
-   	 
-   		 getCurrentPhoto:function(){
+   getCurrentPhoto:function(){
 
-   			console.log("current photo: "+ this.photoList[this.currentPhotoIndex]);
-   	 }
+        return this.photoList[this.currentPhotoIndex];
+     },
+     
+      
+// js functions3 lab below
+      playInterval : " ",
+
+        play : function(){
+
+            this.playInterval = setInterval(function(){slideshow.nextPhoto()},2000);
+
+        },
+
+
+       pause : function(){
+           clearInterval(this.playInterval);
+
+
+        }
+
 
 }
 
-console.log(slideshow.nextPhoto());
-console.log(slideshow.currentPhotoIndex);
-console.log(slideshow.nextPhoto());
-console.log(slideshow.currentPhotoIndex);
-console.log(slideshow.prevPhoto());
-console.log(slideshow.prevPhoto());
-console.log(slideshow.prevPhoto());
-console.log(slideshow.currentPhotoIndex);
-console.log(slideshow.getCurrentPhoto());
-// console.log(slideshow.getCurrentPhoto());
+// slideshow.nextPhoto();
+// slideshow.nextPhoto();
+// slideshow.nextPhoto();
+// slideshow.prevPhoto();
+// slideshow.prevPhoto();
+// slideshow.prevPhoto();
+// slideshow.getCurrentPhoto();
+slideshow.play();
+
+
+
+
+
+
